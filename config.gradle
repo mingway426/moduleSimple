@@ -1,0 +1,13 @@
+def gitShortShaDate = 'git describe'.execute([], project.rootDir).text.trim()
+def gitCommitCount = Integer.parseInt('git rev-list HEAD --count'.execute([], project.rootDir).text.trim())
+
+ext {
+    versionConfig = [
+            compileSdkVersion: 29,
+            buildToolsVersion: "29.0.3",
+            minSdkVersion    : 23,
+            targetSdkVersion : 29,
+            versionCode      : gitCommitCount,
+            versionName      : gitShortShaDate,
+    ]
+}
