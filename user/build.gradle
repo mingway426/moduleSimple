@@ -1,17 +1,17 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion rootProject.ext.versionConfig.compileSdkVersion
+    buildToolsVersion rootProject.ext.versionConfig.buildToolsVersion
 
     defaultConfig {
         applicationId "com.mingway.user"
-        minSdkVersion 23
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.versionConfig.minSdkVersion
+        targetSdkVersion rootProject.ext.versionConfig.targetSdkVersion
+        versionCode rootProject.ext.versionConfig.versionCode
+        versionName rootProject.ext.versionConfig.versionName
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner rootProject.ext.versionConfig.testInstrumentationRunner
     }
 
     buildTypes {

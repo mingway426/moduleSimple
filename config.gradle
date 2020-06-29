@@ -9,5 +9,6 @@ ext {
             targetSdkVersion : 29,
             versionCode      : gitCommitCount,
             versionName      : gitShortShaDate,
+            testInstrumentationRunner: "androidx.test.runner.AndroidJUnitRunner",
     ]
 }
