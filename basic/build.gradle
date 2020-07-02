@@ -26,5 +26,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation rootProject.ext.implementationConfig.publicImplementation
     androidTestImplementation rootProject.ext.implementationConfig.testImplementation
-
+    implementation 'com.github.mingway426:SmartLog:1.0.1'
 }
