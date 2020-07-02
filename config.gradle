@@ -2,6 +2,7 @@ def gitShortShaDate = 'git describe'.execute([], project.rootDir).text.trim()
 def gitCommitCount = Integer.parseInt('git rev-list HEAD --count'.execute([], project.rootDir).text.trim())
 
 ext {
+    //版本号相关
     versionConfig = [
             compileSdkVersion        : 29,
             buildToolsVersion        : "29.0.3",
@@ -11,6 +12,7 @@ ext {
             versionName              : gitShortShaDate,
             testInstrumentationRunner: "androidx.test.runner.AndroidJUnitRunner",
     ]
+    //统一管理的依赖库版本
     implementationConfig = [
             publicImplementation: [
                     'androidx.appcompat:appcompat:1.1.0',
@@ -21,4 +23,13 @@ ext {
                     'androidx.test.espresso:espresso-core:3.2.0'
             ]
     ]
+    //通用的 library
+    moduleLibs = [
+            pubLibs:[
+                    path: ':basic',
+                    path: ':common'
+            ]
+    ]
+    //应用和包切换开关
+    isApplication = true
 }

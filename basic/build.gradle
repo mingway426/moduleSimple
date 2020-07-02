@@ -1,17 +1,16 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.ext.versionConfig.compileSdkVersion
     buildToolsVersion rootProject.ext.versionConfig.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.mingway.login"
         minSdkVersion rootProject.ext.versionConfig.minSdkVersion
         targetSdkVersion rootProject.ext.versionConfig.targetSdkVersion
         versionCode rootProject.ext.versionConfig.versionCode
         versionName rootProject.ext.versionConfig.versionName
-
         testInstrumentationRunner rootProject.ext.versionConfig.testInstrumentationRunner
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -24,7 +23,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation project(rootProject.ext.moduleLibs.pubLibs)
     testImplementation 'junit:junit:4.12'
     implementation rootProject.ext.implementationConfig.publicImplementation
     androidTestImplementation rootProject.ext.implementationConfig.testImplementation
