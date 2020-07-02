@@ -31,4 +31,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation rootProject.ext.implementationConfig.publicImplementation
     androidTestImplementation rootProject.ext.implementationConfig.testImplementation
+    if (!rootProject.ext.isApplication) {
+        implementation project(path: ':login')
+        implementation project(path: ':user')
+    }
 }

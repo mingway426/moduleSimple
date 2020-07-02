@@ -1,11 +1,17 @@
-apply plugin: 'com.android.application'
+if (rootProject.ext.isApplication) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
 
 android {
     compileSdkVersion rootProject.ext.versionConfig.compileSdkVersion
     buildToolsVersion rootProject.ext.versionConfig.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.mingway.login"
+        if (rootProject.ext.isApplication) {
+            applicationId "com.mingway.login"
+        }
         minSdkVersion rootProject.ext.versionConfig.minSdkVersion
         targetSdkVersion rootProject.ext.versionConfig.targetSdkVersion
         versionCode rootProject.ext.versionConfig.versionCode
